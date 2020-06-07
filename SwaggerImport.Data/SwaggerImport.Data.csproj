@@ -9,7 +9,4 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <OpenApiReference Include="swagger.json" SourceUrl="https://build2020.builttoroam.com/swagger/v1/swagger.json" />
-  </ItemGroup>
 </Project>
