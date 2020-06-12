@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SwaggerImport.Data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,15 @@ namespace SwaggerImport.Uno
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var client = new swaggerClient("https://build2020.builttoroam.com", new System.Net.Http.HttpClient());
+            var sessions = await client.SessionsAsync();
+            System.Diagnostics.Debug.WriteLine(sessions.Count);
         }
     }
 }

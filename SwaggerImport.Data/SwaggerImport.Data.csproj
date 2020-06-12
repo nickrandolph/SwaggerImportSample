@@ -1,5 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+		<PackageReference Include="NSwag.ApiDescription.Client" Version="13.0.5" />
+	</ItemGroup>
+	<ItemGroup>
+		<OpenApiReference Include="swagger.json" SourceUrl="https://build2020.builttoroam.com/swagger/v1/swagger.json">
+			<Options>/GenerateClientInterfaces:true</Options>
+		</OpenApiReference>
+	</ItemGroup>
 </Project>

@@ -1,0 +1,386 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Event Schedule API",
+    "version": "v1"
+  },
+  "paths": {
+    "/Sessions/download": {
+      "get": {
+        "tags": [
+          "Sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sessions": {
+      "get": {
+        "tags": [
+          "Sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Session"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Session"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Session"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sessions/sessiontypes": {
+      "get": {
+        "tags": [
+          "Sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sessions/speakers": {
+      "get": {
+        "tags": [
+          "Sessions"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Sessions/calendar": {
+      "get": {
+        "tags": [
+          "Sessions"
+        ],
+        "parameters": [
+          {
+            "name": "sessionTypes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Sessions/allthecalendars": {
+      "get": {
+        "tags": [
+          "Sessions"
+        ],
+        "parameters": [
+          {
+            "name": "sessionTypes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Session": {
+        "type": "object",
+        "properties": {
+          "searchScore": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sessionType": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionTypeLogical": {
+            "type": "string",
+            "nullable": true
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "sessionId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sessionInstanceId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "sessionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionCodeNormalized": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "sortRank": {
+            "type": "object",
+            "additionalProperties": false,
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "htmlDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "level": {
+            "type": "string",
+            "nullable": true
+          },
+          "durationInMinutes": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "sessionTypeId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "slideDeck": {
+            "type": "string",
+            "nullable": true
+          },
+          "isMandatory": {
+            "type": "boolean"
+          },
+          "visibleInSessionListing": {
+            "type": "boolean"
+          },
+          "visibleToAnonymousUsers": {
+            "type": "boolean"
+          },
+          "onDemand": {
+            "type": "string",
+            "nullable": true
+          },
+          "captionFileLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "speakerIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "speakerNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "speakerCompanies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "panelistIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "panelistNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "panelistCompanies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "sessionLinks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "relatedSessionIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "marketingCampaign": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "topic": {
+            "type": "string",
+            "nullable": true
+          },
+          "communityTopic": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastUpdate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

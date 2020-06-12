@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>daaccfaa-1cff-4089-8451-40808ba75f97</ProjectGuid>
+    <ProjectGuid>{DAACCFAA-1CFF-4089-8451-40808BA75F97}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -88,6 +88,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SwaggerImport.Data\SwaggerImport.Data.csproj">
+      <Project>{4F8E26DC-8020-4432-B415-89F03DFFC04D}</Project>
+      <Name>SwaggerImport.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\SwaggerImport.Uno.Shared\SwaggerImport.Uno.Shared.projitems" Label="Shared" Condition="Exists('..\SwaggerImport.Uno.Shared\SwaggerImport.Uno.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
