@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="BuildIt.General.Uno">
+      <Version>2.0.0.11480-beta</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
+      <Version>6.0.0-ge975abb046</Version>
+    </PackageReference>
     <PackageReference Include="Uno.UI" Version="2.4.0" />
     <PackageReference Include="Uno.UI.RemoteControl" Version="2.4.0" Condition="'$(Configuration)'=='Debug'" />
     <PackageReference Include="Uno.UniversalImageLoader" Version="1.9.32" />

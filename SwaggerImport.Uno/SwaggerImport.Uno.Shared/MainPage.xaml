@@ -8,6 +8,45 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<TextBlock Text="Hello, world!" Margin="20" FontSize="30" />
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="LoadingStates">
+                <VisualState x:Name="NotLoaded">
+                    <VisualState.Setters>
+                        <Setter Target="textBlock.(UIElement.Visibility)" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="IsLoading">
+                    <VisualState.StateTriggers>
+                        <local:BooleanDataTrigger
+                            local:BooleanDataTrigger.TriggerValue="True"
+                                    local:BooleanDataTrigger.DataValue="{Binding IsLoading}" 
+                                    />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="textBlock2.(UIElement.Visibility)" Value="Visible"/>
+                        <Setter Target="progressRing.(UIElement.Visibility)" Value="Visible"/>
+                        <Setter Target="progressRing.(ProgressRing.IsActive)" Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="DataLoaded">
+                    <VisualState.StateTriggers>
+                        <local:BooleanDataTrigger
+                            local:BooleanDataTrigger.TriggerValue="True"
+                                    local:BooleanDataTrigger.DataValue="{Binding IsDataLoaded}" 
+                                    />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="textBlock1.(UIElement.Visibility)" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ProgressRing x:Name="progressRing" Width="50" Height="50" Visibility="Collapsed"/>
+            <TextBlock x:Name="textBlock2" Text="Is Loading" TextWrapping="Wrap" Visibility="Collapsed"/>
+            <TextBlock x:Name="textBlock1" Text="Data Loaded" TextWrapping="Wrap" Visibility="Collapsed"/>
+            <TextBlock x:Name="textBlock" Text="Not Loaded" TextWrapping="Wrap" Visibility="Collapsed"/>
+            <Button Content="Load" Click="LoadDataClick"/>
+        </StackPanel>
     </Grid>
 </Page>
